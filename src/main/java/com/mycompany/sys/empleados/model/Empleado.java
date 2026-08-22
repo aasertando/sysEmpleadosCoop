@@ -29,7 +29,7 @@ public class Empleado {
         this.fecha = fecha;
     }
     
-    //inicio getter y setter
+    //inicio getter y setters
     public String getId() {
         return id;
     }
