@@ -1,0 +1,156 @@
+/* Botón Transparente que se ilumina al pasar el cursor */
+.btn-flat {
+    -fx-background-color: transparent;
+    -fx-text-fill: #e2e8f0;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+}
+
+.btn-flat:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.1); /* Destello sutil al pasar el mouse */
+    -fx-text-fill: #ffffff;
+}
+
+.btn-flat:pressed {
+    -fx-background-color: rgba(255, 255, 255, 0.2); /* Efecto al hacer clic */
+}
+
+
+
+
+
+/* Entradas de texto, Desplegables y Calendario */
+.text-field, .combo-box, .date-picker {
+    -fx-background-color: #1e293b;
+    -fx-text-fill: #e2e8f0;
+    -fx-border-color: #334155;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 6px 10px;
+}
+
+/* Efecto al hacer clic en cualquier campo (Foco activo) */
+.text-field:focused, .combo-box:focused, .date-picker:focused {
+    -fx-border-color: #38bdf8; /* Iluminación en azul celeste */
+    -fx-background-color: #0f172a;
+}
+
+/* Estilo para el texto dentro del ComboBox */
+.combo-box .list-cell {
+    -fx-text-fill: #e2e8f0;
+    -fx-background-color: transparent;
+}
+
+/* Menú flotante desplegable del ComboBox */
+.combo-box-popup .list-view {
+    -fx-background-color: #1e293b;
+    -fx-border-color: #334155;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+}
+
+/* Elementos dentro del menú desplegable al pasar el mouse */
+.combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: #334155;
+    -fx-text-fill: #ffffff;
+    -fx-cursor: hand;
+}
+
+
+
+
+/* RadioButton base */
+.radio-button {
+    -fx-text-fill: #e2e8f0;
+    -fx-cursor: hand;
+}
+
+/* El círculo exterior */
+.radio-button .radio {
+    -fx-background-color: #1e293b;
+    -fx-border-color: #334155;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+
+/* Hover al pasar el mouse */
+.radio-button:hover .radio {
+    -fx-border-color: #38bdf8;
+}
+
+/* Punto interno cuando está seleccionado */
+.radio-button:selected .radio .dot {
+    -fx-background-color: #38bdf8;
+    -fx-background-radius: 10px;
+}
+
+
+
+
+
+/* --- CALENDARIO DESPLEGABLE (POPUP FIX) --- */
+.date-picker-popup {
+    -fx-background-color: #1e293b;
+    -fx-border-color: #334155;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 8px;
+}
+
+/* Rejilla de días y fondo general */
+.date-picker-popup > .calendar-grid {
+    -fx-background-color: #0f172a;
+}
+
+/* Encabezado del mes/año */
+.date-picker-popup > .month-year-pane {
+    -fx-background-color: #0f172a;
+}
+
+.date-picker-popup .label {
+    -fx-text-fill: #e2e8f0;
+}
+
+/* Nombres de los días de la semana (Mon, Tue...) */
+.date-picker-popup .day-name-cell {
+    -fx-text-fill: #94a3b8;
+    -fx-font-weight: bold;
+}
+
+/* Números de la columna de semanas a la izquierda */
+.date-picker-popup .week-number-cell {
+    -fx-background-color: #0f172a;
+    -fx-text-fill: #38bdf8;
+    -fx-border-color: transparent #334155 transparent transparent;
+}
+
+/* Celdas de los días */
+.date-picker-popup .day-cell {
+    -fx-background-color: #0f172a;
+    -fx-text-fill: #e2e8f0;
+}
+
+.date-picker-popup .day-cell:hover {
+    -fx-background-color: #334155;
+    -fx-cursor: hand;
+}
+
+/* Día de hoy */
+.date-picker-popup .today {
+    -fx-border-color: #38bdf8;
+    -fx-border-radius: 4px;
+}
+
+/* Día seleccionado */
+.date-picker-popup .selected {
+    -fx-background-color: #38bdf8;
+    -fx-text-fill: #0f172a;
+    -fx-font-weight: bold;
+}
+
+/* Días de otros meses */
+.date-picker-popup .previous-month,
+.date-picker-popup .next-month {
+    -fx-background-color: #0f172a;
+    -fx-text-fill: #475569;
+}
