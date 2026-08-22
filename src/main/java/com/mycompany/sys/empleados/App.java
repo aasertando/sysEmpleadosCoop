@@ -17,8 +17,18 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        // 1. Ampliamos las dimensiones iniciales a 1100 x 680
+        scene = new Scene(loadFXML("primary"), 1280, 750);
+        
+        // 2. Título de la ventana
+        stage.setTitle("Sistema de Nómina");
+        
+        // 3. Establecemos límites mínimos para que no se recorte el diseño
+        stage.setMinWidth(980);
+        stage.setMinHeight(620);
+        
         stage.setScene(scene);
+        stage.centerOnScreen();
         stage.show();
     }
 
@@ -32,6 +42,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
+        System.setProperty("glass.gtk.uiScale", "1.25"); // Prueba con 1.25 o 1.3
         launch();
     }
 
