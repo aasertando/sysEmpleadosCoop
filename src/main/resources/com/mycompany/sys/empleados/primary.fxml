@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1100.0" style="-fx-background-color: #1e1e2e; -fx-font-size: 15;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1100.0" style="-fx-background-color: #1e1e2e; -fx-font-size: 15;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.sys.empleados.PrimaryController">
    <left>
       <VBox spacing="15.0" style="-fx-background-color: #282a36;" BorderPane.alignment="CENTER">
          <padding>
@@ -32,23 +32,23 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Button fx:id="btnPantallaIngresarEmpleado" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="42.0" prefWidth="210.0" styleClass="btn-flat" stylesheets="@style.css" text="INGRESAR EMPLEADO" VBox.vgrow="ALWAYS">
+            <Button fx:id="btnPantallaIngresarEmpleado" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#mostrarPanelIngresar" prefHeight="42.0" prefWidth="210.0" styleClass="btn-flat" stylesheets="@style.css" text="INGRESAR EMPLEADO" VBox.vgrow="ALWAYS">
                <font>
                   <Font size="20.0" />
                </font></Button>
-            <Button fx:id="btnPantallaBuscarLiquidar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="42.0" styleClass="btn-flat" stylesheets="@style.css" text="BUSCAR Y LIQUIDAR" VBox.vgrow="ALWAYS">
+            <Button fx:id="btnPantallaBuscarLiquidar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#mostrarPanelBuscarLiquidar" prefHeight="42.0" styleClass="btn-flat" stylesheets="@style.css" text="BUSCAR Y LIQUIDAR" VBox.vgrow="ALWAYS">
                <font>
                   <Font size="20.0" />
                </font></Button>
-            <Button fx:id="btnPantallaSalarios" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="42.0" styleClass="btn-flat" stylesheets="@style.css" text="LISTADO DE SALARIOS" VBox.vgrow="ALWAYS">
+            <Button fx:id="btnPantallaSalarios" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#mostrarPanelListaSalario" prefHeight="42.0" styleClass="btn-flat" stylesheets="@style.css" text="LISTADO DE SALARIOS" VBox.vgrow="ALWAYS">
                <font>
                   <Font size="20.0" />
                </font></Button>
-            <Button fx:id="btnPantallaEmpleados" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="42.0" styleClass="btn-flat" stylesheets="@style.css" text=" LISTADO DE EMPLEADOS" VBox.vgrow="ALWAYS">
+            <Button fx:id="btnPantallaEmpleados" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#mostrarPanelListaEmpleado" prefHeight="42.0" styleClass="btn-flat" stylesheets="@style.css" text=" LISTADO DE EMPLEADOS" VBox.vgrow="ALWAYS">
                <font>
                   <Font size="20.0" />
                </font></Button>
-            <Button fx:id="btnPantallaEstratos" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="42.0" styleClass="btn-flat" stylesheets="@style.css" text="LISTADO DE ESTRATOS" VBox.vgrow="ALWAYS">
+            <Button fx:id="btnPantallaEstratos" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#mostrarPanelListaEstrato" prefHeight="42.0" styleClass="btn-flat" stylesheets="@style.css" text="LISTADO DE ESTRATOS" VBox.vgrow="ALWAYS">
                <font>
                   <Font size="20.0" />
                </font></Button>
@@ -67,7 +67,25 @@
    <center>
       <StackPane prefHeight="400.0" prefWidth="404.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+            <VBox fx:id="panelBuscarLiquidar" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <GridPane prefHeight="201.0" prefWidth="775.0" VBox.vgrow="ALWAYS">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </children>
+            </VBox>
+            <VBox fx:id="panelListaSalarios" prefHeight="200.0" prefWidth="100.0" />
+            <VBox fx:id="panelListaEmpleados" prefHeight="200.0" prefWidth="100.0" />
+            <VBox fx:id="panelListaEstratos" prefHeight="200.0" prefWidth="100.0" />
+            <VBox fx:id="panelIngresar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" visible="false">
                <children>
                   <GridPane alignment="CENTER" hgap="15.0" VBox.vgrow="ALWAYS">
                     <columnConstraints>
