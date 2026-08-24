@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1100.0" style="-fx-background-color: #1e1e2e; -fx-font-size: 15;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1100.0" style="-fx-background-color: #1e1e2e; -fx-font-size: 15;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.sys.empleados.PrimaryController">
    <left>
       <VBox spacing="15.0" style="-fx-background-color: #282a36;" BorderPane.alignment="CENTER">
          <padding>
@@ -130,7 +130,7 @@
                         </TextField>
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="15.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <children>
-                              <RadioButton fx:id="comboHombreEmpleado" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" selected="true" styleClass="combo-box-popup" stylesheets="@style.css" text="HOMBRE" HBox.hgrow="ALWAYS">
+                              <RadioButton fx:id="checkHombreEmpleado" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" selected="true" styleClass="combo-box-popup" stylesheets="@style.css" text="HOMBRE" HBox.hgrow="ALWAYS">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="grupoGenero" />
                                  </toggleGroup>
@@ -138,7 +138,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </RadioButton>
-                              <RadioButton fx:id="comboMujerEmpleado" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="combo-box-popup" stylesheets="@style.css" text="MUJER" toggleGroup="$grupoGenero" HBox.hgrow="ALWAYS">
+                              <RadioButton fx:id="checkMujerEmpleado" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="combo-box-popup" stylesheets="@style.css" text="MUJER" toggleGroup="$grupoGenero" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
