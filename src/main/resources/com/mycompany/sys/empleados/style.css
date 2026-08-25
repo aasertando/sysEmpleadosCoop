@@ -154,3 +154,44 @@
     -fx-background-color: #0f172a;
     -fx-text-fill: #475569;
 }
+
+
+.tabla{
+    -fx-background-color: transparent;
+    -fx-control-inner-background: #0f172a; 
+    -fx-table-cell-border-color: transparent;
+    -fx-text-fill: white;
+}
+
+/* Fondo general de la tabla y celdas */
+.table-view {
+    -fx-background-color: #1e293b;
+    -fx-control-inner-background: #1e293b;
+    -fx-table-cell-border-color: #334155;
+}
+
+/* Encabezado de las columnas oscuro */
+.table-view .column-header-background {
+    -fx-background-color: #0f172a;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: transparent;
+    -fx-text-fill: #f8fafc;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #f8fafc;
+    -fx-font-weight: bold;
+}
+
+/* Color del texto dentro de las filas */
+.table-row-cell {
+    -fx-background-color: #1e293b;
+    -fx-text-fill: #f8fafc;
+}
+
+/* Color cuando pasas el mouse por encima de una fila */
+.table-row-cell:hover {
+    -fx-background-color: #334155;
+}
