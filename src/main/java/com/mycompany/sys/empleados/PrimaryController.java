@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
+import javafx.scene.control.TextField; // importante para las cajas de texto
 
 public class PrimaryController {
     
@@ -15,6 +16,23 @@ public class PrimaryController {
     //commit de prueba
     
     //comentario de prueba 2
+    
+    // declaracion vector empleado y su respectivo contador con un limite de 20
+    private Empleado[] listaEmpleados = new Empleado[20]; 
+    private int contadorEmpleados = 0; 
+    
+    //textfields del panel de ingreso 
+    
+    // vinculalos al scene builder
+    @FXML private TextField txtIngresarId;         
+    @FXML private TextField txtIngresarNombre;
+    @FXML private TextField txtIngresarGenero;     
+    @FXML private TextField txtIngresarHorasExtra;
+    @FXML private TextField txtIngresarEstrato;
+    @FXML private TextField txtIngresarSalario;
+    
+    // Label opcional en el panel de ingreso para dar taza de éxito o error
+    @FXML private Label lblEstadoIngreso; 
     
     @FXML
     private void switchToSecondary() throws IOException {
@@ -117,6 +135,51 @@ public class PrimaryController {
     //ocultarPaneles()  oculta todo
     //.toFront()             para que se ponga encima de todo
     //.setVisible()         para que se vea el requerido
+    // Enlaza este método en la propiedad "On Action" de tu botón en Scene Builder
+    @FXML
+    private void handleGuardarEmpleado() {
+        // Valida si el vector estático tiene casillas libres
+        if (contadorEmpleados < listaEmpleados.length) {
+            try {
+                // Capturar strings de los TextField de JavaFX
+                String id = txtIngresarId.getText();
+                String nombre = txtIngresarNombre.getText();
+                String genero = txtIngresarGenero.getText();
+                
+                // Conversión de tipos numéricos
+                int horasExtra = Integer.parseInt(txtIngresarHorasExtra.getText());
+                int estrato = Integer.parseInt(txtIngresarEstrato.getText());
+                float salarioBasico = Float.parseFloat(txtIngresarSalario.getText()); 
+
+                LocalDate fechaIngreso = LocalDate.now(); 
+
+                Empleado nuevoEmpleado = new Empleado(id, nombre, genero, estrato, horasExtra, salarioBasico, fechaIngreso);
+
+                listaEmpleados[contadorEmpleados] = nuevoEmpleado;
+                contadorEmpleados++; // Pasamos a la siguiente posición vacía
+                
+                txtIngresarId.clear();
+                txtIngresarNombre.clear();
+                txtIngresarGenero.clear();
+                txtIngresarHorasExtra.clear();
+                txtIngresarEstrato.clear();
+                txtIngresarSalario.clear();
+
+                if (lblEstadoIngreso != null) {
+                    lblEstadoIngreso.setText("¡Empleado guardado! Total: " + contadorEmpleados);
+                }
+                
+            } catch (NumberFormatException e) {
+                if (lblEstadoIngreso != null) {
+                    lblEstadoIngreso.setText("Error: Verifique los campos numéricos.");
+                }
+            }
+        } else {
+            if (lblEstadoIngreso != null) {
+                lblEstadoIngreso.setText("Error: Vector lleno.");
+            }
+        }
+    }
     
     private void hacerRecibo(Empleado e){
         

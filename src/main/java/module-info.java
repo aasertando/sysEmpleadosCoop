@@ -4,4 +4,6 @@ module com.mycompany.sys.empleados {
 
     opens com.mycompany.sys.empleados to javafx.fxml;
     exports com.mycompany.sys.empleados;
+    requires javafx.controlsEmpty;
+    requires javafx.graphicsEmpty;
 }
