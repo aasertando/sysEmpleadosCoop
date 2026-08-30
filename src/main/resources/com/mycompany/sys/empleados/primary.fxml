@@ -173,7 +173,7 @@
                               <Insets left="20.0" right="20.0" />
                            </GridPane.margin>
                         </DatePicker>
-                        <Button fx:id="btnIngresarEmpleado" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="btn-flat" stylesheets="@style.css" text="INGRESAR EMPLEADO" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                        <Button fx:id="btnIngresarEmpleado" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleGuardarEmpleado" styleClass="btn-flat" stylesheets="@style.css" text="INGRESAR EMPLEADO" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="7">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -182,7 +182,7 @@
                   </GridPane>
                </children>
             </VBox>
-            <VBox fx:id="panelBuscarLiquidar" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" StackPane.alignment="CENTER">
+            <VBox fx:id="panelBuscarLiquidar" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" visible="false" StackPane.alignment="CENTER">
                <children>
                   <TextField fx:id="txtBuscarId" maxWidth="-Infinity" prefHeight="34.0" prefWidth="458.0" promptText="ID del empleado" stylesheets="@style.css">
                      <VBox.margin>
@@ -192,7 +192,7 @@
                         <Font size="20.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="btnBuscarBuscar" mnemonicParsing="false" styleClass="btn-flat" stylesheets="@style.css" text="Buscar">
+                  <Button fx:id="btnBuscarBuscar" mnemonicParsing="false" onAction="#handleBuscarEmpleado" styleClass="btn-flat" stylesheets="@style.css" text="Buscar">
                      <VBox.margin>
                         <Insets bottom="20.0" top="20.0" />
                      </VBox.margin>
@@ -357,12 +357,12 @@
                      <children>
                         <TableView fx:id="columnaSalariosSalarioBase" prefHeight="200.0" prefWidth="200.0" styleClass="tabla" stylesheets="@style.css" VBox.vgrow="ALWAYS">
                           <columns>
-                            <TableColumn fx:id="columnaSalariosCedula" editable="false" prefWidth="75.0" text="Cédula" />
-                            <TableColumn fx:id="columnaSalariosNombre" editable="false" prefWidth="196.53326416015625" text="Nombre" />
-                              <TableColumn editable="false" prefWidth="96.2667236328125" text="Salario Base" />
-                              <TableColumn fx:id="columnaSalariosTotalGanado" editable="false" prefWidth="75.0" text="Total Ganado" />
-                              <TableColumn fx:id="columnaSalariosTotalDescontado" editable="false" prefWidth="75.0" text="Total Descontado" />
-                              <TableColumn fx:id="columnaSalariosNeto" editable="false" prefWidth="75.0" text="Neto a Pagar" />
+                            <TableColumn fx:id="columnaSalariosCedula" editable="false" prefWidth="91.20001220703125" text="Cédula" />
+                            <TableColumn fx:id="columnaSalariosNombre" editable="false" prefWidth="177.60000610351562" text="Nombre" />
+                              <TableColumn fx:id="columnaSalariosBase" editable="false" prefWidth="125.5999755859375" text="Salario Base" />
+                              <TableColumn fx:id="columnaSalariosTotalGanado" editable="false" prefWidth="76.800048828125" text="Total Ganado" />
+                              <TableColumn fx:id="columnaSalariosTotalDescontado" editable="false" prefWidth="95.199951171875" text="Total Descontado" />
+                              <TableColumn fx:id="columnaSalariosNeto" editable="false" prefWidth="102.4000244140625" text="Neto a Pagar" />
                           </columns>
                            <VBox.margin>
                               <Insets />
@@ -374,8 +374,39 @@
                      </children>
                   </VBox>
                </children></VBox>
-            <VBox fx:id="panelListaEmpleados" prefHeight="200.0" prefWidth="100.0" visible="false" />
-            <VBox fx:id="panelListaEstratos" prefHeight="200.0" prefWidth="100.0" visible="false" />
+            <VBox fx:id="panelListaEmpleados" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" visible="false">
+               <children>
+                  <TableView fx:id="tablaEmpleados" maxWidth="1.7976931348623157E308" prefHeight="638.0" prefWidth="792.0" styleClass="tabla" stylesheets="@style.css">
+                     <columns>
+                        <TableColumn fx:id="columnaEmpleadosId" editable="false" prefWidth="91.20001220703125" text="Cédula" />
+                        <TableColumn fx:id="columnaEmpleadosNombre" editable="false" prefWidth="177.60000610351562" text="Nombre" />
+                        <TableColumn fx:id="columnaEmpleadosEstrato" editable="false" prefWidth="125.5999755859375" text="Estrato" />
+                        <TableColumn fx:id="columnaEmpleadosSueldoBasico" editable="false" prefWidth="76.800048828125" text="Sueldo Básico" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+               <StackPane.margin>
+                  <Insets bottom="60.0" left="60.0" right="60.0" top="60.0" />
+               </StackPane.margin></VBox>
+            <VBox fx:id="panelListaEstratos" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" visible="false">
+               <children>
+                  <TableView fx:id="tablaEstratos" maxWidth="1.7976931348623157E308" prefHeight="638.0" prefWidth="792.0" styleClass="tabla" stylesheets="@style.css">
+                     <columns>
+                        <TableColumn fx:id="columnaEstratosCantidad" editable="false" prefWidth="91.20001220703125" text="Cantidad de Empleados" />
+                        <TableColumn fx:id="columnaEstratosAplica" editable="false" prefWidth="177.60000610351562" text="Aplica Subsidio" />
+                        <TableColumn fx:id="columnaEstratosEstrato" editable="false" prefWidth="125.5999755859375" text="Estrato" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+               <StackPane.margin>
+                  <Insets bottom="60.0" left="60.0" right="60.0" top="60.0" />
+               </StackPane.margin></VBox>
          </children>
       </StackPane>
    </center>
