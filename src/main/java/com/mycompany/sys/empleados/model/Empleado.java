@@ -123,6 +123,7 @@ public class Empleado {
         return pagoNeto;
     }
     
+    //para el setCellValueFactory<> osea llenar el campo
     public double getTotalGanado() {
         return salarioBasico + (horasExtra * getValorHora());
     }

@@ -59,7 +59,7 @@
                   <Insets />
                </VBox.margin>
             </Region>
-            <Button fx:id="btnSalir" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="42.0" styleClass="btn-flat" stylesheets="@style.css" text="SALIR" VBox.vgrow="ALWAYS">
+            <Button fx:id="btnSalir" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleSalir" prefHeight="42.0" styleClass="btn-flat" stylesheets="@style.css" text="SALIR" VBox.vgrow="ALWAYS">
                <font>
                   <Font size="20.0" />
                </font></Button>

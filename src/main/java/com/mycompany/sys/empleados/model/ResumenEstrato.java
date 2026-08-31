@@ -19,17 +19,31 @@ public class ResumenEstrato {
         this.cantidad = cantidad;
         this.aplica = aplica;
     }
-
+    
+    //inicio getter y setter
     public int getEstrato() {
         return estrato;
+    }
+
+    public void setEstrato(int estrato) {
+        this.estrato = estrato;
     }
 
     public int getCantidad() {
         return cantidad;
     }
 
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
     public String getAplica() {
         return aplica;
     }
 
+    public void setAplica(String aplica) {
+        this.aplica = aplica;
+    }
+    //fin getter y setter
+    
 }
