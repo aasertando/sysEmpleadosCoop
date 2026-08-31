@@ -23,7 +23,7 @@ import javafx.scene.layout.VBox;
 import javax.swing.JOptionPane;
 
 public class PrimaryController {
-    
+
     private Empleado[] listaEmpleados = new Empleado[20];
     private int contadorEmpleados = 0;
 
@@ -250,23 +250,10 @@ public class PrimaryController {
             return;
         }
 
-        if (inputIdEmpleado.getText().isEmpty() || inputNombreEmpleado.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "El id y el nombre son obligatorios.");
-            return;
-        }
-
-        if (comboEstratoEmpleado.getValue() == null) {
-            JOptionPane.showMessageDialog(null, "Debe seleccionar el estrato.");
-            return;
-        }
-
-        if (inputFechaEmpleado.getValue() == null) {
-            JOptionPane.showMessageDialog(null, "Debe seleccionar la fecha de ingreso.");
-            return;
-        }
-
-        if (inputHorasExtraEmpleado.getText().isEmpty() || inputSalarioBasicoEmpleado.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Las horas extra y el salario son obligatorios.");
+        if (inputIdEmpleado.getText().isEmpty() || inputNombreEmpleado.getText().isEmpty()
+                || comboEstratoEmpleado.getValue() == null || inputFechaEmpleado.getValue() == null
+                || inputHorasExtraEmpleado.getText().isEmpty() || inputSalarioBasicoEmpleado.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Debe llenar todos los campos.");
             return;
         }
 
@@ -301,7 +288,7 @@ public class PrimaryController {
     }
 
     @FXML
-    void handleBuscarEmpleado(ActionEvent event) {
+    void handleBuscarEmpleado() {
         String idBuscado = txtBuscarId.getText();
 
         if (idBuscado.isEmpty()) {
